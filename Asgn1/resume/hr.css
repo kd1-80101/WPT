@@ -1,0 +1,15 @@
+.hr {
+    height: 3px;
+    background-color: black;
+    background-blend-mode: darken;
+
+
+}
+
+.subhr {
+    height: 1px;
+    background-color: black;
+    background-blend-mode: darken;
+
+
+}

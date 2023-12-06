@@ -1,0 +1,26 @@
+.bodyStyle {
+
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom right, #3498db, #2ecc71);
+    color: white;
+    background-blend-mode: lighten;
+
+}
+
+.sectionStyle {
+
+    text-align: left;
+    margin: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: black;
+}
+
+.headFootStyle {
+    background-color: #333;
+    padding: px;
+}

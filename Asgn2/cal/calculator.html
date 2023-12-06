@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <link rel="stylesheet" href="common.css" />
+  </head>
+  <body class="body" ;>
+    <div
+      class ="heading">
+      <head>
+        CALCULATOR
+      </head>
+    </div>
+    <div class="div" ;>
+      <center>
+        <table style="height: 300px">
+          <tr>
+            <td>Num 1 :</td>
+            <td>
+              <input
+                type="number"
+                style="width: 180px; font-size: xx-large; height: 30px"
+                required
+                id="num1"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>Num 2 :</td>
+            <td>
+              <input
+                id="num2"
+                type="number"
+                style="width: 180px; font-size: xx-large; height: 30px"
+                required
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>Result :</td>
+            <td>
+              <textarea
+                id="result"
+                cols="30"
+                rows="2"
+                readonly
+                style="width: 180px; font-size: xx-large; height: 30px"
+              ></textarea>
+            </td>
+          </tr>
+        </table>
+        <div
+          style="
+            height: 42px;
+            width: 84%;
+            top: 370px;
+            position: absolute;
+            /* background-color: aqua; */
+          "
+          ;
+        >
+          <center>
+            <input type="button" value="Addition" onclick="add()" class="btn" />
+            <input
+              type="button"
+              value="Substraction"
+              onclick="sub()"
+              class="btn"
+            />
+            <input
+              type="button"
+              value="Multiplication"
+              onclick="mult()"
+              class="btn"
+            />
+            <input type="button" value="Division" onclick="div()" class="btn" />
+          </center>
+        </div>
+      </center>
+    </div>
+    <script src="cal.js"></script>
+  </body>
+</html>
