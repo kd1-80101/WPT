@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Registration</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="card mx-auto" style="max-width: 600px;">
+            <div class="card-header text-center">
+                <h1>Customer Registration</h1>
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="cnum" class="form-label">Cnum:</label>
+                        <input type="number" class="form-control" id="cnum" required>
+                        <div class="invalid-feedback" id="error1"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="cname" class="form-label">Cname:</label>
+                        <input type="text" class="form-control" id="cname" required>
+                        <div class="invalid-feedback" id="error2"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email:</label>
+                        <input type="email" class="form-control" id="email" required>
+                        <div class="invalid-feedback" id="error3"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password:</label>
+                        <input type="password" class="form-control" id="password" required>
+                        <div class="invalid-feedback" id="error4"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="confirmPassword" class="form-label">Confirm Password:</label>
+                        <input type="password" class="form-control" id="confirmPassword" required>
+                        <div class="invalid-feedback" id="error5"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="mobileNo" class="form-label">Mobile No:</label>
+                        <input type="number" class="form-control" id="mobileNo" required>
+                        <div class="invalid-feedback" id="error6"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="city" class="form-label">City:</label>
+                        <input type="text" class="form-control" id="city" required>
+                        <div class="invalid-feedback" id="error7"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="state" class="form-label">State:</label>
+                        <select class="form-select" id="state" required>
+                            <option value="" disabled selected>Select State</option>
+                            <option value="Maharashtra">Maharashtra</option>
+                            <option value="Karnataka">Karnataka</option>
+                            <option value="Tamilnadu">Tamilnadu</option>
+                            <option value="Goa">Goa</option>
+                        </select>
+                        <div class="invalid-feedback" id="error8"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="pincode" class="form-label">Pincode:</label>
+                        <input type="number" class="form-control" id="pincode" required>
+                        <div class="invalid-feedback" id="error9"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Request Payment Mode:</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="debit" value="Debit">
+                            <label class="form-check-label" for="debit">Debit</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="credit" value="Credit">
+                            <label class="form-check-label" for="credit">Credit</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="upi" value="UPI">
+                            <label class="form-check-label" for="upi">UPI</label>
+                        </div>
+                        <div class="invalid-feedback" id="error10"></div>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="Register()">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function Register() {
+            ValidateForEmpty("1", "error1", "must be a number and cannot be empty");
+            ValidateForEmpty("2", "error2", "cannot be empty");
+            ValidateForEmpty("3", "error3", "cannot be empty");
+            ValidateForEmpty("4", "error4", "Password is not matching");
+            ValidateForEmpty("5", "error5", "Confirm Password cannot be empty");
+            ValidateForEmpty("6", "error6", "must be a 10-digit number");
+            ValidateForEmpty("7", "error7", "cannot be empty");
+            ValidateForEmpty("8", "error8", "State name is required");
+            ValidateForEmpty("9", "error9", "must be a 6-digit number");
+            ValidateCheckBoxes("error10", "Select at least two checkboxes");
+
+            var formData = {
+                Cnum: document.getElementById("1").value,
+                Cname: document.getElementById("2").value,
+                Email: document.getElementById("3").value,
+                Password: document.getElementById("4").value,
+                ConfirmPassword: document.getElementById("5").value,
+                MobileNo: document.getElementById("6").value,
+                City: document.getElementById("7").value,
+                State: document.getElementById("8").value,
+                Pincode: document.getElementById("9").value,
+                RequestPaymentMode: getSelectedCheckboxes("p"),
+            };
+
+            localStorage.setItem("formData", JSON.stringify(formData));
+
+            window.location.href = "nextPage.html";
+        }
+
+        function ValidateForEmpty(id, errorID, errorMessage) {
+            var refToID = document.getElementById(id);
+            var refToError = document.getElementById(errorID);
+
+            if (refToID.value === "") {
+                refToError.innerText = errorMessage;
+            } else {
+                refToError.innerText = "";
+            }
+        }
+
+        function ValidateCheckBoxes(errorID, errorMessage) {
+            var checkboxes = getSelectedCheckboxes("p");
+            var refToError = document.getElementById(errorID);
+
+            if (checkboxes.length < 2) {
+                refToError.innerText = errorMessage;
+            } else {
+                refToError.innerText = "";
+            }
+        }
+
+        function getSelectedCheckboxes(name) {
+            return Array.from(
+                document.querySelectorAll(`input[type="checkbox"][name="${name}"]:checked`)
+            ).map((checkbox) => checkbox.value);
+        }
+    </script>
+</body>
+
+</html>
