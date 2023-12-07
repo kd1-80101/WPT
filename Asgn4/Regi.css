@@ -1,0 +1,62 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 10px;
+    padding: 10px;
+    background-color: #4158D0;
+    background-image: radial-gradient( circle 311px at 8.6% 27.9%,  rgba(62,147,252,0.57) 12.9%, rgba(239,183,192,0.44) 91.2% );
+}
+
+header {
+    text-align: center;
+    background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);   color: white;
+    padding: 15px ;
+    margin-bottom: 20px;
+    
+    Font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif   
+}
+
+.form {
+    align-content: center;
+    width: 35%;
+
+    margin: 20px auto;
+    background-color: whitesmoke;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px black;
+}
+
+form table {
+    width: 100%;
+}
+
+td {
+    padding: 8px;
+}
+
+
+
+input[type="submit"],
+input[type="reset"] {
+    padding: 10px 20px;
+    background-image: radial-gradient( circle 311px at 8.6% 27.9%,  rgba(62,147,252,0.57) 12.9%, rgba(239,183,192,0.44) 91.2% );
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+    background-color: gray;
+}
+
+.invalid {
+    border: 1px solid red;
+}
+
+.warning {
+    color: red;
+    font-size: 12px;
+}
+
